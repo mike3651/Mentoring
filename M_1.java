@@ -1,5 +1,5 @@
 /**
- * This file doesn't compile, it was coded with codepad and explained 
+ * This file does compile, it was coded with codepad and explained 
  * via phone/skype
  *
  * @author Michael Wilson
@@ -10,7 +10,14 @@ import java.util.*;
 public class M_1 { // i am goig to post the questions here now
     
     public static void main(final String[] args) {
-                
+        int n = 3;
+        System.out.println("Value from f1 is: " + f1(n));    
+        System.out.println("Value from f2 is: " + f2(n));
+        System.out.println("Value from f3 is: " + f3(n));
+        System.out.println("Value from f4 is: " + f4(n));
+        System.out.println("Value from f5 is: " + f5(n));
+        System.out.println("Value from f6 is: " + f6(n));
+        System.out.println("Value from f7 is: " + f7(n));
     }   
     
         
