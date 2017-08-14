@@ -1,13 +1,16 @@
 /**
  * This file does compile, it was coded with codepad and explained 
- * via phone/skype
+ * via phone/skype.
+ * My exaplanations are between the JAVADOC comments. 
+ * In this case Emmanuel asked me to help him with the Run time analysis of 
+ * each function.
  *
- * @author Michael Wilson
+ * @author Michael Wilson, Emmanuel
  * @version 1.0 */
 
 import java.util.*;
 
-public class M_1 { // i am goig to post the questions here now
+public class M_1 { // i am going to post the questions here now
     
     public static void main(final String[] args) {
         int n = 3;
@@ -21,17 +24,18 @@ public class M_1 { // i am goig to post the questions here now
     }   
     
         
-    public static int f1(int N) {  // this methd should O(n)
+    public static int f1(int N) {  // this method should O(n)
          int x = 0; //O(1)
-        for(int i = 0; i < N; i++)  // O(n) here i have a question bc i is calling N            
+        for(int i = 0; i < N; i++)  // O(n) 
             x++;          
         return x; 
             
     } // what do you think about this method, how u will approach it?
 
 
-    //Big oh of this method --> O(n * O(n)) --> O(n * n) === O(n^2)
-    public static int f2(int N) { // N is the lenth 
+    //Big oh of this method
+    /** O(n * O(n)) --> O(n * n) === O(n^2) **/
+    public static int f2(int N) {  
         int x = 0; //O(1)
         for(int i = 0; i < N; i++) // O(n)
                 // O(n)`
@@ -41,7 +45,8 @@ public class M_1 { // i am goig to post the questions here now
     }
 
 
-    // Big oh of this method --> O(n^2)
+    // Big oh of this method
+    /** O(n^2) */
     public static int f3(int N) {
         
         // O(1)
@@ -72,7 +77,7 @@ public class M_1 { // i am goig to post the questions here now
     }
 
 
-    //Big oh of this method 
+    // Big O of this method 
     // f4(N/2) --> O(log(n))
     // F1(N) --> (N)
 
@@ -82,6 +87,10 @@ public class M_1 { // i am goig to post the questions here now
      * 
      * O(SOME FUNCTION) = F1(N) + {F4(N/2): some function } --> O(n^dlog(n)) = O(nlog(n))
      *
+     * Since we know the layout of this problem uses 3 functions we can  use the master's 
+     * theorem twice by separating each part
+     *
+     * First dealing with call of f(1) and one call of F4(N/2)
      * 1 * f1(n/1) + log(n^d)
      * d === 1 =  log_(b)a === log_(1)1 === 1
      * 
@@ -107,15 +116,15 @@ public class M_1 { // i am goig to post the questions here now
          return f4(N/2) + f1(N) + f4(N/2);
     }
 
-    // We know that we're going to make log(n)
-    // we know that max RT of just the return call is: MAX(logn, n, logn) --> n
-    // for(i == N, i > 0, i/=2)
-    //    for(j = 0; j < N; j++)
-    // log(n) * n --> O(nlog(n))
+    /** We know that we're going to make log(n)
+     * we know that max RT of just the return call is: MAX(logn, n, logn) --> n
+     * for(i == N, i > 0, i/=2)
+     *    for(j = 0; j < N; j++)
+     * log(n) * n --> O(nlog(n)) */
 
 
 
-    // log(n) * n == RT: O(nLog(n))
+    /** log(n) * n == RT: O(nLog(n)) */
     //Big oh of this method 
     public static int f5(int N) { 
         int x = 0;
@@ -135,8 +144,8 @@ public class M_1 { // i am goig to post the questions here now
      * This can be viewed as a binary tree structure and the RT:(TOTAL NODES)
      * TOTAL_NODES = 2^n+1 - 1 --> RT: O(2^(n + 1)) */
 
-    /* N === 4
-                                     f(4)
+    /** N === 4
+                                   f(4)
                             /                
                       f6(3)
             /                   \
@@ -236,22 +245,20 @@ int pop()   //pop one int off stack
 Write a pseudo code using the above methods to reverses the items in a QueueOfInts q 
 by using an intermediate StackOfInts s.*/
 
-/*
-q2s --> s2q
-
-def rev_queue(q):
-    s = new StackOfInts()
-    n = len(q)
-        
-    q --> s
-    for i from 1 to n
-        s.push(q.dequeue())
-   
-    s --> q
-    // reversed the contents in our queue via the stack
-    while the stack is not empty
-        q.enqueue(s.pop())
-
-*/
+/**
+ * q2s --> s2q
+ *
+ *def rev_queue(q):
+ *   s = new StackOfInts()
+ *   n = len(q)
+ *       
+ *  q --> s
+ *   for i from 1 to n
+ *      s.push(q.dequeue())
+ * 
+ *  s --> q
+ *  // reversed the contents in our queue via the stack
+ *  while the stack is not empty
+ *      q.enqueue(s.pop()) */
 
 
